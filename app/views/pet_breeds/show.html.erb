@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Pet breed #<%= @the_pet_breed.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/pet_breeds">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_pet_breed/<%= @the_pet_breed.id %>">
+          Delete pet breed
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Breed
+      </dt>
+      <dd>
+        <%= @the_pet_breed.breed_id %>
+      </dd>
+
+      <dt>
+        Pet
+      </dt>
+      <dd>
+        <%= @the_pet_breed.pet_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_pet_breed.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_pet_breed.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit pet breed
+    </h2>
+
+    <form action="/modify_pet_breed/<%= @the_pet_breed.id %>"  method="post" >
+      <div>
+        <label for="breed_id_box">
+          Breed
+        </label>
+
+        <input type="text" id="breed_id_box" name="query_breed_id" value="<%= @the_pet_breed.breed_id %>">
+      </div>
+
+      <div>
+        <label for="pet_id_box">
+          Pet
+        </label>
+
+        <input type="text" id="pet_id_box" name="query_pet_id" value="<%= @the_pet_breed.pet_id %>">
+      </div>
+
+      <button>
+        Update pet breed
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

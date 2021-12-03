@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Breed web #<%= @the_breed_web.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/breed_webs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_breed_web/<%= @the_breed_web.id %>">
+          Delete breed web
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Primary breed
+      </dt>
+      <dd>
+        <%= @the_breed_web.primary_breed_id %>
+      </dd>
+
+      <dt>
+        Similar breed
+      </dt>
+      <dd>
+        <%= @the_breed_web.similar_breed_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_breed_web.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_breed_web.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit breed web
+    </h2>
+
+    <form action="/modify_breed_web/<%= @the_breed_web.id %>"  method="post" >
+      <div>
+        <label for="primary_breed_id_box">
+          Primary breed
+        </label>
+
+        <input type="text" id="primary_breed_id_box" name="query_primary_breed_id" value="<%= @the_breed_web.primary_breed_id %>">
+      </div>
+
+      <div>
+        <label for="similar_breed_id_box">
+          Similar breed
+        </label>
+
+        <input type="text" id="similar_breed_id_box" name="query_similar_breed_id" value="<%= @the_breed_web.similar_breed_id %>">
+      </div>
+
+      <button>
+        Update breed web
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

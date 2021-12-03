@@ -1,0 +1,266 @@
+<div>
+  <div>
+    <h1>
+      Pet #<%= @the_pet.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/pets">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_pet/<%= @the_pet.id %>">
+          Delete pet
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_pet.name %>
+      </dd>
+
+      <dt>
+        Estimated birthday
+      </dt>
+      <dd>
+        <%= @the_pet.estimated_birthday %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_pet.status %>
+      </dd>
+
+      <dt>
+        Adopter
+      </dt>
+      <dd>
+        <%= @the_pet.adopter_id %>
+      </dd>
+
+      <dt>
+        Gender
+      </dt>
+      <dd>
+        <%= @the_pet.gender %>
+      </dd>
+
+      <dt>
+        Weight
+      </dt>
+      <dd>
+        <%= @the_pet.weight %>
+      </dd>
+
+      <dt>
+        Children competability ranking
+      </dt>
+      <dd>
+        <%= @the_pet.children_competability_ranking %>
+      </dd>
+
+      <dt>
+        Dog competability ranking
+      </dt>
+      <dd>
+        <%= @the_pet.dog_competability_ranking %>
+      </dd>
+
+      <dt>
+        Cat competability ranking
+      </dt>
+      <dd>
+        <%= @the_pet.cat_competability_ranking %>
+      </dd>
+
+      <dt>
+        Home alone competability ranking
+      </dt>
+      <dd>
+        <%= @the_pet.home_alone_competability_ranking %>
+      </dd>
+
+      <dt>
+        Activity competability ranking
+      </dt>
+      <dd>
+        <%= @the_pet.activity_competability_ranking %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_pet.notes %>
+      </dd>
+
+      <dt>
+        Foster
+      </dt>
+      <dd>
+        <%= @the_pet.foster_id %>
+      </dd>
+
+      <dt>
+        Species
+      </dt>
+      <dd>
+        <%= @the_pet.species %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_pet.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_pet.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit pet
+    </h2>
+
+    <form action="/modify_pet/<%= @the_pet.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_pet.name %>">
+      </div>
+
+      <div>
+        <label for="estimated_birthday_box">
+          Estimated birthday
+        </label>
+
+        <input type="date" id="estimated_birthday_box" name="query_estimated_birthday" value="<%= @the_pet.estimated_birthday %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_pet.status %>">
+      </div>
+
+      <div>
+        <label for="adopter_id_box">
+          Adopter
+        </label>
+
+        <input type="text" id="adopter_id_box" name="query_adopter_id" value="<%= @the_pet.adopter_id %>">
+      </div>
+
+      <div>
+        <label for="gender_box">
+          Gender
+        </label>
+
+        <input type="text" id="gender_box" name="query_gender" value="<%= @the_pet.gender %>">
+      </div>
+
+      <div>
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight" value="<%= @the_pet.weight %>">
+      </div>
+
+      <div>
+        <label for="children_competability_ranking_box">
+          Children competability ranking
+        </label>
+
+        <input type="text" id="children_competability_ranking_box" name="query_children_competability_ranking" value="<%= @the_pet.children_competability_ranking %>">
+      </div>
+
+      <div>
+        <label for="dog_competability_ranking_box">
+          Dog competability ranking
+        </label>
+
+        <input type="text" id="dog_competability_ranking_box" name="query_dog_competability_ranking" value="<%= @the_pet.dog_competability_ranking %>">
+      </div>
+
+      <div>
+        <label for="cat_competability_ranking_box">
+          Cat competability ranking
+        </label>
+
+        <input type="text" id="cat_competability_ranking_box" name="query_cat_competability_ranking" value="<%= @the_pet.cat_competability_ranking %>">
+      </div>
+
+      <div>
+        <label for="home_alone_competability_ranking_box">
+          Home alone competability ranking
+        </label>
+
+        <input type="text" id="home_alone_competability_ranking_box" name="query_home_alone_competability_ranking" value="<%= @the_pet.home_alone_competability_ranking %>">
+      </div>
+
+      <div>
+        <label for="activity_competability_ranking_box">
+          Activity competability ranking
+        </label>
+
+        <input type="text" id="activity_competability_ranking_box" name="query_activity_competability_ranking" value="<%= @the_pet.activity_competability_ranking %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_pet.notes %></textarea>
+      </div>
+
+      <div>
+        <label for="foster_id_box">
+          Foster
+        </label>
+
+        <input type="text" id="foster_id_box" name="query_foster_id" value="<%= @the_pet.foster_id %>">
+      </div>
+
+      <div>
+        <label for="species_box">
+          Species
+        </label>
+
+        <input type="text" id="species_box" name="query_species" value="<%= @the_pet.species %>">
+      </div>
+
+      <button>
+        Update pet
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

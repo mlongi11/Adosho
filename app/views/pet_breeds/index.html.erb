@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all pet breeds
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new pet breed
+    </h2>
+
+    <form action="/insert_pet_breed" method="post">
+      <div>
+        <label for="breed_id_box">
+          Breed
+        </label>
+
+        <input type="text" id="breed_id_box" name="query_breed_id">
+      </div>
+
+      <div>
+        <label for="pet_id_box">
+          Pet
+        </label>
+
+        <input type="text" id="pet_id_box" name="query_pet_id">
+      </div>
+
+      <button>
+        Create pet breed
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Breed
+        </th>
+
+        <th>
+          Pet
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_pet_breeds.each do |a_pet_breed| %>
+      <tr>
+        <td>
+          <%= a_pet_breed.id %>
+        </td>
+
+        <td>
+          <%= a_pet_breed.breed_id %>
+        </td>
+
+        <td>
+          <%= a_pet_breed.pet_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_pet_breed.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_pet_breed.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/pet_breeds/<%= a_pet_breed.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

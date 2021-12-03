@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all breed webs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new breed web
+    </h2>
+
+    <form action="/insert_breed_web" method="post">
+      <div>
+        <label for="primary_breed_id_box">
+          Primary breed
+        </label>
+
+        <input type="text" id="primary_breed_id_box" name="query_primary_breed_id">
+      </div>
+
+      <div>
+        <label for="similar_breed_id_box">
+          Similar breed
+        </label>
+
+        <input type="text" id="similar_breed_id_box" name="query_similar_breed_id">
+      </div>
+
+      <button>
+        Create breed web
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Primary breed
+        </th>
+
+        <th>
+          Similar breed
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_breed_webs.each do |a_breed_web| %>
+      <tr>
+        <td>
+          <%= a_breed_web.id %>
+        </td>
+
+        <td>
+          <%= a_breed_web.primary_breed_id %>
+        </td>
+
+        <td>
+          <%= a_breed_web.similar_breed_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_breed_web.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_breed_web.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/breed_webs/<%= a_breed_web.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

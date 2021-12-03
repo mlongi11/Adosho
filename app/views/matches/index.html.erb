@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all matches
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new match
+    </h2>
+
+    <form action="/insert_match" method="post">
+      <div>
+        <label for="pet_id_box">
+          Pet
+        </label>
+
+        <input type="text" id="pet_id_box" name="query_pet_id">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="match_strength_box">
+          Match strength
+        </label>
+
+        <input type="text" id="match_strength_box" name="query_match_strength">
+      </div>
+
+      <button>
+        Create match
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Pet
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Match strength
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_matches.each do |a_match| %>
+      <tr>
+        <td>
+          <%= a_match.id %>
+        </td>
+
+        <td>
+          <%= a_match.pet_id %>
+        </td>
+
+        <td>
+          <%= a_match.user_id %>
+        </td>
+
+        <td>
+          <%= a_match.match_strength %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_match.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_match.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/matches/<%= a_match.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

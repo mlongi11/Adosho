@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Match #<%= @the_match.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/matches">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_match/<%= @the_match.id %>">
+          Delete match
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Pet
+      </dt>
+      <dd>
+        <%= @the_match.pet_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_match.user_id %>
+      </dd>
+
+      <dt>
+        Match strength
+      </dt>
+      <dd>
+        <%= @the_match.match_strength %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_match.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_match.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit match
+    </h2>
+
+    <form action="/modify_match/<%= @the_match.id %>"  method="post" >
+      <div>
+        <label for="pet_id_box">
+          Pet
+        </label>
+
+        <input type="text" id="pet_id_box" name="query_pet_id" value="<%= @the_match.pet_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_match.user_id %>">
+      </div>
+
+      <div>
+        <label for="match_strength_box">
+          Match strength
+        </label>
+
+        <input type="text" id="match_strength_box" name="query_match_strength" value="<%= @the_match.match_strength %>">
+      </div>
+
+      <button>
+        Update match
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

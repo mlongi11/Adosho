@@ -1,0 +1,222 @@
+<div>
+  <div>
+    <h1>
+      List of all interests
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new interest
+    </h2>
+
+    <form action="/insert_interest" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <input type="checkbox" id="interested_in_fostering_dogs_box" name="query_interested_in_fostering_dogs" value="1">
+
+        <label for="interested_in_fostering_dogs_box">Interested in fostering dogs</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="interested_in_fostering_cats_box" name="query_interested_in_fostering_cats" value="1">
+
+        <label for="interested_in_fostering_cats_box">Interested in fostering cats</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="interested_in_adopting_dogs_box" name="query_interested_in_adopting_dogs" value="1">
+
+        <label for="interested_in_adopting_dogs_box">Interested in adopting dogs</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="interested_in_adopting_cats_box" name="query_interested_in_adopting_cats" value="1">
+
+        <label for="interested_in_adopting_cats_box">Interested in adopting cats</label>
+      </div>
+
+      <div>
+        <label for="children_competability_preference_box">
+          Children competability preference
+        </label>
+
+        <input type="text" id="children_competability_preference_box" name="query_children_competability_preference">
+      </div>
+
+      <div>
+        <label for="dog_competability_preference_box">
+          Dog competability preference
+        </label>
+
+        <input type="text" id="dog_competability_preference_box" name="query_dog_competability_preference">
+      </div>
+
+      <div>
+        <label for="cat_competability_preference_box">
+          Cat competability preference
+        </label>
+
+        <input type="text" id="cat_competability_preference_box" name="query_cat_competability_preference">
+      </div>
+
+      <div>
+        <label for="activity_competability_preference_box">
+          Activity competability preference
+        </label>
+
+        <input type="text" id="activity_competability_preference_box" name="query_activity_competability_preference">
+      </div>
+
+      <div>
+        <label for="home_alone_competability_preference_box">
+          Home alone competability preference
+        </label>
+
+        <input type="text" id="home_alone_competability_preference_box" name="query_home_alone_competability_preference">
+      </div>
+
+      <button>
+        Create interest
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Interested in fostering dogs
+        </th>
+
+        <th>
+          Interested in fostering cats
+        </th>
+
+        <th>
+          Interested in adopting dogs
+        </th>
+
+        <th>
+          Interested in adopting cats
+        </th>
+
+        <th>
+          Children competability preference
+        </th>
+
+        <th>
+          Dog competability preference
+        </th>
+
+        <th>
+          Cat competability preference
+        </th>
+
+        <th>
+          Activity competability preference
+        </th>
+
+        <th>
+          Home alone competability preference
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_interests.each do |an_interest| %>
+      <tr>
+        <td>
+          <%= an_interest.id %>
+        </td>
+
+        <td>
+          <%= an_interest.user_id %>
+        </td>
+
+        <td>
+          <%= an_interest.interested_in_fostering_dogs %>
+        </td>
+
+        <td>
+          <%= an_interest.interested_in_fostering_cats %>
+        </td>
+
+        <td>
+          <%= an_interest.interested_in_adopting_dogs %>
+        </td>
+
+        <td>
+          <%= an_interest.interested_in_adopting_cats %>
+        </td>
+
+        <td>
+          <%= an_interest.children_competability_preference %>
+        </td>
+
+        <td>
+          <%= an_interest.dog_competability_preference %>
+        </td>
+
+        <td>
+          <%= an_interest.cat_competability_preference %>
+        </td>
+
+        <td>
+          <%= an_interest.activity_competability_preference %>
+        </td>
+
+        <td>
+          <%= an_interest.home_alone_competability_preference %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_interest.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_interest.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/interests/<%= an_interest.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

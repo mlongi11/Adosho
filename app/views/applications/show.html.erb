@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Application #<%= @the_application.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/applications">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_application/<%= @the_application.id %>">
+          Delete application
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_application.user_id %>
+      </dd>
+
+      <dt>
+        Pet
+      </dt>
+      <dd>
+        <%= @the_application.pet_id %>
+      </dd>
+
+      <dt>
+        Application type
+      </dt>
+      <dd>
+        <%= @the_application.application_type %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_application.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_application.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_application.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit application
+    </h2>
+
+    <form action="/modify_application/<%= @the_application.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_application.user_id %>">
+      </div>
+
+      <div>
+        <label for="pet_id_box">
+          Pet
+        </label>
+
+        <input type="text" id="pet_id_box" name="query_pet_id" value="<%= @the_application.pet_id %>">
+      </div>
+
+      <div>
+        <label for="application_type_box">
+          Application type
+        </label>
+
+        <input type="text" id="application_type_box" name="query_application_type" value="<%= @the_application.application_type %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_application.status %>">
+      </div>
+
+      <button>
+        Update application
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

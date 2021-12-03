@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Watchlist #<%= @the_watchlist.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/watchlists">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_watchlist/<%= @the_watchlist.id %>">
+          Delete watchlist
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_watchlist.user_id %>
+      </dd>
+
+      <dt>
+        Pet
+      </dt>
+      <dd>
+        <%= @the_watchlist.pet_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_watchlist.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_watchlist.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit watchlist
+    </h2>
+
+    <form action="/modify_watchlist/<%= @the_watchlist.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_watchlist.user_id %>">
+      </div>
+
+      <div>
+        <label for="pet_id_box">
+          Pet
+        </label>
+
+        <input type="text" id="pet_id_box" name="query_pet_id" value="<%= @the_watchlist.pet_id %>">
+      </div>
+
+      <button>
+        Update watchlist
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

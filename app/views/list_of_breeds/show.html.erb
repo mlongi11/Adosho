@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      List of breed #<%= @the_list_of_breed.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/list_of_breeds">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_list_of_breed/<%= @the_list_of_breed.id %>">
+          Delete list of breed
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Species
+      </dt>
+      <dd>
+        <%= @the_list_of_breed.species %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_list_of_breed.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_list_of_breed.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit list of breed
+    </h2>
+
+    <form action="/modify_list_of_breed/<%= @the_list_of_breed.id %>"  method="post" >
+      <div>
+        <label for="species_box">
+          Species
+        </label>
+
+        <input type="text" id="species_box" name="query_species" value="<%= @the_list_of_breed.species %>">
+      </div>
+
+      <button>
+        Update list of breed
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

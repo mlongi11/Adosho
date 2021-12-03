@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Breed preference #<%= @the_breed_preference.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/breed_preferences">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_breed_preference/<%= @the_breed_preference.id %>">
+          Delete breed preference
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_breed_preference.user_id %>
+      </dd>
+
+      <dt>
+        Breed
+      </dt>
+      <dd>
+        <%= @the_breed_preference.breed_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_breed_preference.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_breed_preference.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit breed preference
+    </h2>
+
+    <form action="/modify_breed_preference/<%= @the_breed_preference.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_breed_preference.user_id %>">
+      </div>
+
+      <div>
+        <label for="breed_id_box">
+          Breed
+        </label>
+
+        <input type="text" id="breed_id_box" name="query_breed_id" value="<%= @the_breed_preference.breed_id %>">
+      </div>
+
+      <button>
+        Update breed preference
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
