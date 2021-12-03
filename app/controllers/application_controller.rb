@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def landing_page
 
-    render("/general/landingpage.html.erb")
+    redirect_to("/pets")
   end
 
 end
