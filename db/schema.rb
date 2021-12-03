@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_190220) do
+ActiveRecord::Schema.define(version: 2021_12_03_221059) do
 
   create_table "applications", force: :cascade do |t|
     t.integer "user_id"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_190220) do
     t.string "species"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "picture"
   end
 
   create_table "users", force: :cascade do |t|

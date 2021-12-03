@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  # Routes for page navigation
+  get("/", {:controller => "application", :action => "landing_page"})
 
+  get("/pets", {:controller => "pets", :action => "index"})
 
   # Routes for the Application resource:
 

@@ -28,7 +28,7 @@ class User < ApplicationRecord
   has_many(:watched_pets, { :through => :watchlists, :source => :pet })
   has_many(:matched_pets, { :through => :matches, :source => :pet })
 
-  validates(:phone_number, { :format => { :with => "^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" } })
+  # validates(:phone_number, { :format => { :with => "^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" } })
   validates(:phone_number, { :presence => true })
   validates(:account_type, { :inclusion => { :in => [ "User", "Administrator" ] } })
 end

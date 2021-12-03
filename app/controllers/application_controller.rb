@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def landing_page
+
+    render("/general/landingpage.html.erb")
+  end
+
 end
