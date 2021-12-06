@@ -5,6 +5,15 @@ task({ :sample_data => :environment}) do
   User.destroy_all
   Pet.destroy_all
 
+  user = User.new
+  user.first_name = Faker::Name.first_name 
+  user.last_name = Faker::Name.last_name
+  user.email = "admin@adopti_test.com"
+  user.password = "password"
+  user.phone_number = "5555555555"
+  user.account_type = "Administrator"
+  user.save
+
   5.times do
     user = User.new
     user.first_name = Faker::Name.first_name 

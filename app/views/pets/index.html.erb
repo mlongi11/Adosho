@@ -1,179 +1,181 @@
-<div>
-  <div>
-    <h1>
-      List of all pets
-    </h1>
-  </div>
+<div class="container">
+    <div>
+      <div>
+        <h1>
+          List of all pets
+        </h1>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://www.shelterluv.com/sites/default/files/styles/60x60/public/animal_pics/35708/2021/11/28/06/st_edward1638110625Edward.jpg?itok=XvfRIx63" class="card-img-top" alt="...">
+      <div class="card-header">
+        <h5>Pet Name</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+    <hr>
+    <div>
+      <div>
+        <table>
+          <tr>
+            <th>
+              ID
+            </th>
+
+            <th>
+              Name
+            </th>
+
+            <th>
+              Estimated birthday
+            </th>
+
+            <th>
+              Status
+            </th>
+
+            <th>
+              Adopter
+            </th>
+
+            <th>
+              Gender
+            </th>
+
+            <th>
+              Weight
+            </th>
+
+            <th>
+              Children competability ranking
+            </th>
+
+            <th>
+              Dog competability ranking
+            </th>
+
+            <th>
+              Cat competability ranking
+            </th>
+
+            <th>
+              Home alone competability ranking
+            </th>
+
+            <th>
+              Activity competability ranking
+            </th>
+
+            <th>
+              Notes
+            </th>
+
+            <th>
+              Foster
+            </th>
+
+            <th>
+              Species
+            </th>
+
+            <th>
+              Created at
+            </th>
+
+            <th>
+              Updated at
+            </th>
+
+            <th>
+            </th>
+          </tr>
+
+          <% @list_of_pets.each do |a_pet| %>
+          <tr>
+            <td>
+              <%= a_pet.id %>
+            </td>
+
+            <td>
+              <%= a_pet.name %>
+            </td>
+
+            <td>
+              <%= a_pet.estimated_birthday %>
+            </td>
+
+            <td>
+              <%= a_pet.status %>
+            </td>
+
+            <td>
+              <%= a_pet.adopter_id %>
+            </td>
+
+            <td>
+              <%= a_pet.gender %>
+            </td>
+
+            <td>
+              <%= a_pet.weight %>
+            </td>
+
+            <td>
+              <%= a_pet.children_competability_ranking %>
+            </td>
+
+            <td>
+              <%= a_pet.dog_competability_ranking %>
+            </td>
+
+            <td>
+              <%= a_pet.cat_competability_ranking %>
+            </td>
+
+            <td>
+              <%= a_pet.home_alone_competability_ranking %>
+            </td>
+
+            <td>
+              <%= a_pet.activity_competability_ranking %>
+            </td>
+
+            <td>
+              <%= a_pet.notes %>
+            </td>
+
+            <td>
+              <%= a_pet.foster_id %>
+            </td>
+
+            <td>
+              <%= a_pet.species %>
+            </td>
+
+            <td>
+              <%= time_ago_in_words(a_pet.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_pet.updated_at) %> ago
+            </td>
+
+            <td>
+              <a href="/pets/<%= a_pet.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+    <hr>
 </div>
-
-<hr>
-
-<div class="card" style="width: 18rem;">
-  <img src="https://www.shelterluv.com/sites/default/files/styles/60x60/public/animal_pics/35708/2021/11/28/06/st_edward1638110625Edward.jpg?itok=XvfRIx63" class="card-img-top" alt="...">
-  <div class="card-header">
-    <h5>Pet Name</h5>
-  </div>
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Name
-        </th>
-
-        <th>
-          Estimated birthday
-        </th>
-
-        <th>
-          Status
-        </th>
-
-        <th>
-          Adopter
-        </th>
-
-        <th>
-          Gender
-        </th>
-
-        <th>
-          Weight
-        </th>
-
-        <th>
-          Children competability ranking
-        </th>
-
-        <th>
-          Dog competability ranking
-        </th>
-
-        <th>
-          Cat competability ranking
-        </th>
-
-        <th>
-          Home alone competability ranking
-        </th>
-
-        <th>
-          Activity competability ranking
-        </th>
-
-        <th>
-          Notes
-        </th>
-
-        <th>
-          Foster
-        </th>
-
-        <th>
-          Species
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_pets.each do |a_pet| %>
-      <tr>
-        <td>
-          <%= a_pet.id %>
-        </td>
-
-        <td>
-          <%= a_pet.name %>
-        </td>
-
-        <td>
-          <%= a_pet.estimated_birthday %>
-        </td>
-
-        <td>
-          <%= a_pet.status %>
-        </td>
-
-        <td>
-          <%= a_pet.adopter_id %>
-        </td>
-
-        <td>
-          <%= a_pet.gender %>
-        </td>
-
-        <td>
-          <%= a_pet.weight %>
-        </td>
-
-        <td>
-          <%= a_pet.children_competability_ranking %>
-        </td>
-
-        <td>
-          <%= a_pet.dog_competability_ranking %>
-        </td>
-
-        <td>
-          <%= a_pet.cat_competability_ranking %>
-        </td>
-
-        <td>
-          <%= a_pet.home_alone_competability_ranking %>
-        </td>
-
-        <td>
-          <%= a_pet.activity_competability_ranking %>
-        </td>
-
-        <td>
-          <%= a_pet.notes %>
-        </td>
-
-        <td>
-          <%= a_pet.foster_id %>
-        </td>
-
-        <td>
-          <%= a_pet.species %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_pet.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_pet.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/pets/<%= a_pet.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<hr>
