@@ -84,7 +84,7 @@ Rails.application.routes.draw do
   # Routes for the Watchlist resource:
 
   # CREATE
-  post("/insert_watchlist", { :controller => "watchlists", :action => "create" })
+  get("/insert_watchlist/:pet_id", { :controller => "watchlists", :action => "create" })
           
   # READ
   get("/watchlists", { :controller => "watchlists", :action => "index" })
@@ -96,7 +96,7 @@ Rails.application.routes.draw do
   post("/modify_watchlist/:path_id", { :controller => "watchlists", :action => "update" })
   
   # DELETE
-  get("/delete_watchlist/:path_id", { :controller => "watchlists", :action => "destroy" })
+  get("/delete_watchlist/:pet_id", { :controller => "watchlists", :action => "destroy" })
 
   #------------------------------
 

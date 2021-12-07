@@ -8,7 +8,7 @@ task({ :sample_data => :environment}) do
   user = User.new
   user.first_name = Faker::Name.first_name 
   user.last_name = Faker::Name.last_name
-  user.email = "admin@adopti_test.com"
+  user.email = "admin@adoptitest.com"
   user.password = "password"
   user.phone_number = "5555555555"
   user.account_type = "Administrator"
@@ -18,7 +18,7 @@ task({ :sample_data => :environment}) do
     user = User.new
     user.first_name = Faker::Name.first_name 
     user.last_name = Faker::Name.last_name
-    user.email = "#{user.first_name}.#{user.last_name}@adopti_test.com"
+    user.email = "#{user.first_name}.#{user.last_name}@adoptitest.com"
     user.password = "password"
     user.phone_number = "5555555555"
     user.account_type = "User"
@@ -51,8 +51,8 @@ task({ :sample_data => :environment}) do
       else
         Faker::Creature::Cat.name
       end)
-    pet.picture = "https://robohash.org/#{pet.name}?set=set4"
     pet.weight = "#{rand(60)} lbs."
+    pet.picture = "https://robohash.org/#{pet.name}#{pet.weight}?set=set4"
     pet.status = 
       (if rand(3) == 2
         "Available for adoption"

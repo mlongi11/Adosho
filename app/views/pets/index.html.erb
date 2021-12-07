@@ -44,7 +44,11 @@
         <%# <p class="card-text">TEXT</p> %>
         <div>
           <a href="/pets/<%=a_pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
-          <a href="/pets/<%=a_pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>
+          <%if Watchlist.where({ :pet_id => a_pet.id, :user_id => @current_user.id }).at(0) == nil%>
+            <a href="/insert_watchlist/<%=a_pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>
+          <%else%>
+            <a href="/delete_watchlist/<%=a_pet.id%>" class="btn btn-outline-danger btn-sm">Stop Watching</a>
+          <%end%>
         </div>
         <span class="badge badge-pill badge-info">Children <span class="badge badge-light"><%=a_pet.children_competability_ranking%></span></span>
         <span class="badge badge-pill badge-info">Dog <span class="badge badge-light"><%=a_pet.dog_competability_ranking%></span></span>

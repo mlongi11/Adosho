@@ -1,8 +1,8 @@
 class WatchlistsController < ApplicationController
   def index
-    matching_watchlists = Watchlist.all
+    matching_watchlists = @current_user.watchlists
 
-    @list_of_watchlists = matching_watchlists.order({ :created_at => :desc })
+    @current_users_watchlist = matching_watchlists.order({ :created_at => :desc })
 
     render({ :template => "watchlists/index.html.erb" })
   end
@@ -19,8 +19,8 @@ class WatchlistsController < ApplicationController
 
   def create
     the_watchlist = Watchlist.new
-    the_watchlist.user_id = params.fetch("query_user_id")
-    the_watchlist.pet_id = params.fetch("query_pet_id")
+    the_watchlist.user_id = @current_user.id
+    the_watchlist.pet_id = params.fetch("pet_id")
 
     if the_watchlist.valid?
       the_watchlist.save
@@ -46,8 +46,8 @@ class WatchlistsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_watchlist = Watchlist.where({ :id => the_id }).at(0)
+    pet_id = params.fetch("pet_id")
+    the_watchlist = Watchlist.where({ :pet_id => pet_id, :user_id => @current_user.id }).at(0)
 
     the_watchlist.destroy
 

@@ -1,102 +1,39 @@
+<div class = "container">
 <div>
   <div>
     <h1>
-      List of all watchlists
+      My Watchlist
     </h1>
   </div>
 </div>
 
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new watchlist
-    </h2>
-
-    <form action="/insert_watchlist" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
+<div class="row row-cols-1 row-cols-md-4">
+  <% @current_users_watchlist.each do |watched_pet| %>
+  <div class="col mb-3">
+    <div class="card h-100">
+      <img src="<%=watched_pet.pet.picture%>" class="card-img-top" alt="<%=watched_pet.pet.picture%>">
+      <div class="card-body">
+        <h5 class="card-title"><%=watched_pet.pet.name%></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%=watched_pet.pet.species%>, <%="#{time_ago_in_words(watched_pet.pet.estimated_birthday)} old"%></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%=watched_pet.pet.gender%>, <%=watched_pet.pet.weight%></h6>
+        <%# <p class="card-text">TEXT</p> %>
+        <div>
+          <a href="/pets/<%=watched_pet.pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
+          <%if Watchlist.where({ :pet_id => watched_pet.pet.id, :user_id => @current_user.id }).at(0) == nil%>
+            <a href="/insert_watchlist/<%=watched_pet.pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>
+          <%else%>
+            <a href="/delete_watchlist/<%=watched_pet.pet.id%>" class="btn btn-outline-danger btn-sm">Stop Watching</a>
+          <%end%>
+        </div>
+        <span class="badge badge-pill badge-info">Children <span class="badge badge-light"><%=watched_pet.pet.children_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Dog <span class="badge badge-light"><%=watched_pet.pet.dog_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Cat <span class="badge badge-light"><%=watched_pet.pet.cat_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Home Alone <span class="badge badge-light"><%=watched_pet.pet.home_alone_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Activity <span class="badge badge-light"><%=watched_pet.pet.activity_competability_ranking%></span></span>
       </div>
-
-      <div>
-        <label for="pet_id_box">
-          Pet
-        </label>
-
-        <input type="text" id="pet_id_box" name="query_pet_id">
-      </div>
-
-      <button>
-        Create watchlist
-      </button>
-    </form>
+    </div>
   </div>
+  <% end %>
 </div>
-
 <hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Pet
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_watchlists.each do |a_watchlist| %>
-      <tr>
-        <td>
-          <%= a_watchlist.id %>
-        </td>
-
-        <td>
-          <%= a_watchlist.user_id %>
-        </td>
-
-        <td>
-          <%= a_watchlist.pet_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_watchlist.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_watchlist.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/watchlists/<%= a_watchlist.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
 </div>
-
-<hr>

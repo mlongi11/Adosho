@@ -28,8 +28,12 @@
             <h5 class="card-title"><%=@the_pet.name%></h5>
             <p class ="card-text"><i class="fas fa-venus-mars"></i> <%=@the_pet.gender%></p>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="/pets/<%=@the_pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>            
-            <p class="card-text"><small class="text-muted">Updated <%= time_ago_in_words(@the_pet.updated_at) %> ago</small></p>
+            <%if Watchlist.where({ :pet_id => @the_pet.id, :user_id => @current_user.id }).at(0) == nil%>
+              <a href="/insert_watchlist/<%=@the_pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>
+            <%else%>
+              <a href="/delete_watchlist/<%=@the_pet.id%>" class="btn btn-outline-danger btn-sm">Stop Watching</a>
+            <%end%>
+          <p class="card-text"><small class="text-muted">Updated <%= time_ago_in_words(@the_pet.updated_at) %> ago</small></p>
           </div>
         </div>
       </div>
