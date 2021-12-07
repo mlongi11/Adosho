@@ -1,8 +1,8 @@
 class PetsController < ApplicationController
   def index
-    matching_pets = Pet.all
+    @q = Pet.ransack(params[:q])
 
-    @list_of_pets = matching_pets.order({ :created_at => :desc })
+    @list_of_pets = @q.result
 
     render({ :template => "pets/index.html.erb" })
   end

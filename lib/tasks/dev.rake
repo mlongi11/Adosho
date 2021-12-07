@@ -52,11 +52,18 @@ task({ :sample_data => :environment}) do
         Faker::Creature::Cat.name
       end)
     pet.picture = "https://robohash.org/#{pet.name}?set=set4"
+    pet.weight = "#{rand(60)} lbs."
+    pet.status = 
+      (if rand(3) == 2
+        "Available for adoption"
+        else
+          "Available for foster"
+        end
+      )
+    pet.estimated_birthday =
+        (Date.today - rand(800))
     pet.save
-    #  estimated_birthday               :date
     #  notes                            :text
-    #  status                           :string
-    #  weight                           :string
   end
   p "Added #{Pet.count} Pets"
 

@@ -1,8 +1,6 @@
+<div class="container">
 <div>
   <div>
-    <h1>
-      Pet #<%= @the_pet.id %> details
-    </h1>
 
     <div>
       <div>
@@ -11,10 +9,29 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_pet/<%= @the_pet.id %>">
-          Delete pet
-        </a>
+      <%if @current_user.account_type == "Administrator"%>
+        <div>
+          <a href="/delete_pet/<%= @the_pet.id %>">
+            Delete pet
+          </a>
+        </div>
+      <%end%>
+    </div>
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+        <img src="<%=@the_pet.picture%>" class="card-img-top" alt="<%=@the_pet.picture%>">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%=@the_pet.name%></h5>
+            <p class ="card-text"><i class="fas fa-venus-mars"></i> <%=@the_pet.gender%></p>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <a href="/pets/<%=@the_pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>            
+            <p class="card-text"><small class="text-muted">Updated <%= time_ago_in_words(@the_pet.updated_at) %> ago</small></p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -261,6 +278,7 @@
       </button>
     </form>
   </div>
+</div>
 </div>
 
 <hr>
