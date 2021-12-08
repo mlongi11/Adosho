@@ -108,7 +108,7 @@ Rails.application.routes.draw do
   # READ
   get("/interests", { :controller => "interests", :action => "index" })
   
-  get("/interests/:path_id", { :controller => "interests", :action => "show" })
+  get("/interests/update", { :controller => "interests", :action => "show" })
   
   # UPDATE
   

@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all interests
+      Set your preferences
     </h1>
   </div>
 </div>
@@ -10,85 +10,157 @@
 
 <div>
   <div>
-    <h2>
-      Add a new interest
-    </h2>
 
     <form action="/insert_interest" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
 
       <div>
-        <input type="checkbox" id="interested_in_fostering_dogs_box" name="query_interested_in_fostering_dogs" value="1">
-
-        <label for="interested_in_fostering_dogs_box">Interested in fostering dogs</label>
+        <label>Interested in adopting...</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="query_interested_in_adopting_dogs" name="query_interested_in_adopting_dogs" value="1">
+          <label class="form-check-label" for="query_interested_in_adopting_dogs">Dogs</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="query_interested_in_adopting_cats" name="query_interested_in_adopting_cats" value="1">
+          <label class="form-check-label" for="query_interested_in_adopting_cats">Cats</label>
+        </div>
       </div>
-
+      <div></div>
       <div>
-        <input type="checkbox" id="interested_in_fostering_cats_box" name="query_interested_in_fostering_cats" value="1">
-
-        <label for="interested_in_fostering_cats_box">Interested in fostering cats</label>
+        <label>Interested in fostering...</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="query_interested_in_fostering_dogs" name="query_interested_in_fostering_dogs" value="1">
+          <label class="form-check-label" for="query_interested_in_fostering_dogs">Dogs</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="query_interested_in_fostering_cats" name="query_interested_in_fostering_cats" value="1">
+          <label class="form-check-label" for="query_interested_in_fostering_cats">Cats</label>
+        </div>
       </div>
 
-      <div>
-        <input type="checkbox" id="interested_in_adopting_dogs_box" name="query_interested_in_adopting_dogs" value="1">
+      <h6>Select the traits of your ideal pet!</h6>
 
-        <label for="interested_in_adopting_dogs_box">Interested in adopting dogs</label>
-      </div>
+        <div class="form-group">
+          <label for="children_competability_preference_box">Children Competability</label>
+          <input type="range" class="custom-range" min="1" max="5" id="children_competability_preference_box" name="children_competability_preference_box">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (adults only!)
+              </div>
+              <div class="col-sm text-center">
+                2 (children 12 and up)
+              </div>
+              <div class="col-sm text-center">
+                3 (children 8 and up)
+              </div>
+              <div class="col-sm text-center">
+                4 (children 5 and up)
+              </div>
+              <div class="col-sm text-right">
+                5 (good with all ages)
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div>
-        <input type="checkbox" id="interested_in_adopting_cats_box" name="query_interested_in_adopting_cats" value="1">
+        <div class="form-group">
+          <label for="dog_competability_preference_box">Dog Competability</label>
+          <input type="range" class="custom-range" min="1" max="5" id="dog_competability_preference_box" name="dog_competability_preference_box">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (no other dogs)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3 (still getting used to dogs)
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (good with dogs)
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <label for="interested_in_adopting_cats_box">Interested in adopting cats</label>
-      </div>
+        <div class="form-group">
+          <label for="cat_competability_preference_box">Cat Competability</label>
+          <input type="range" class="custom-range" min="1" max="5" id="cat_competability_preference_box" name="cat_competability_preference_box">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (no cats!)
+              </div>
+              <div class="col-sm text-center">
+                2 (picky with cats)
+              </div>
+              <div class="col-sm text-center">
+                3 (selective with cats)
+              </div>
+              <div class="col-sm text-center">
+                4 (few restrictions)
+              </div>
+              <div class="col-sm text-right">
+                5 (no restrictions)
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div>
-        <label for="children_competability_preference_box">
-          Children competability preference
-        </label>
+        <div class="form-group">
+          <label for="activity_competability_preference_box">Activity Competability</label>
+          <input type="range" class="custom-range" min="1" max="5" id="activity_competability_preference_box" name="activity_competability_preference_box">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (couch potato)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (very active)
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <input type="text" id="children_competability_preference_box" name="query_children_competability_preference">
-      </div>
-
-      <div>
-        <label for="dog_competability_preference_box">
-          Dog competability preference
-        </label>
-
-        <input type="text" id="dog_competability_preference_box" name="query_dog_competability_preference">
-      </div>
-
-      <div>
-        <label for="cat_competability_preference_box">
-          Cat competability preference
-        </label>
-
-        <input type="text" id="cat_competability_preference_box" name="query_cat_competability_preference">
-      </div>
-
-      <div>
-        <label for="activity_competability_preference_box">
-          Activity competability preference
-        </label>
-
-        <input type="text" id="activity_competability_preference_box" name="query_activity_competability_preference">
-      </div>
-
-      <div>
-        <label for="home_alone_competability_preference_box">
-          Home alone competability preference
-        </label>
-
-        <input type="text" id="home_alone_competability_preference_box" name="query_home_alone_competability_preference">
-      </div>
-
-      <button>
-        Create interest
+        <div class="form-group">
+          <label for="home_alone_competability_preference_box">Home Alone Competability</label>
+          <input type="range" class="custom-range" min="1" max="5" id="home_alone_competability_preference_box" name="home_alone_competability_preference_box">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-left">
+                1 (separation anxiety)
+              </div>
+              <div class="col-sm text-center">
+                2
+              </div>
+              <div class="col-sm text-center">
+                3 (left alone for 1-2 hours)
+              </div>
+              <div class="col-sm text-center">
+                4
+              </div>
+              <div class="col-sm text-right">
+                5 (fine alone for hours)
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <button class="btn btn-outline-success btn-block">
+        Set Preferences
       </button>
     </form>
   </div>

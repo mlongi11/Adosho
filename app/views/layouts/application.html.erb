@@ -52,12 +52,13 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                 Account
               </a>
-              <div class="dropdown-menu my-2 my-lg-0" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%if @current_user == nil %>
                 <a class="dropdown-item" href="/user_sign_in">Sign In</a>
                 <a class="dropdown-item" href="/user_sign_up">Sign Up</a>
                 <%else%>
-                <a class="dropdown-item" href="/edit_user_profile">Preferences</a>
+                <a class="dropdown-item" href="/edit_user_profile">Edit Profile</a>
+                <a class="dropdown-item" href="/interests">Preferences</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/user_sign_out">Sign Out</a>
                 <%end%>
@@ -65,6 +66,8 @@
             </li>
           </ul>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+      </div>
   </body>
 </html>
