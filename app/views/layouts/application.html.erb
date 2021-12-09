@@ -38,7 +38,7 @@
             <a class="nav-link" href="/pets">All Pets <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/pets">Matches <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/matches">Matches <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="/watchlists">Watchlist <span class="sr-only">(current)</span></a>
@@ -58,7 +58,11 @@
                 <a class="dropdown-item" href="/user_sign_up">Sign Up</a>
                 <%else%>
                 <a class="dropdown-item" href="/edit_user_profile">Edit Profile</a>
-                <a class="dropdown-item" href="/interests">Preferences</a>
+                  <%if @current_user.interest == nil%>
+                    <a class="dropdown-item" href="/interests">Preferences</a>
+                  <%else%>
+                    <a class="dropdown-item" href="/interests/update">Preferences</a>
+                  <%end%>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/user_sign_out">Sign Out</a>
                 <%end%>
@@ -66,7 +70,14 @@
             </li>
           </ul>
     </nav>
+
     <div class="container">
+      <%if notice != nil%>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <%end%>
+
       <%= yield %>
       </div>
   </body>

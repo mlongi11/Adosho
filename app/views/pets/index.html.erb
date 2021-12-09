@@ -1,8 +1,8 @@
     <div>
       <div>
-        <h1>
+        <h3>
           All Pets
-        </h1>
+        </h3>
       </div>
     </div>
 
@@ -12,18 +12,13 @@
   <p>Narrow results:</p>
 
   <div>
-    <%= f.label :name_cont, "Name containing" %>
-    <%= f.text_field :name_cont, :placeholder => "Enter a few characters" %>
-  </div>
-
-  <div>
     <%= f.label :species_cont, "Species containing" %>
-    <%= f.text_field :species_cont, :placeholder => "Enter a few characters" %>
+    <%= f.text_field :species_cont, :placeholder => "Dog, Cat" %>
   </div>
 
   <div>
     <%= f.label :status_cont, "Status containing" %>
-    <%= f.text_field :status_cont, :placeholder => "Enter a few characters" %>
+    <%= f.text_field :status_cont, :placeholder => "adoption, fostering" %>
   </div>
 
   <%= f.submit :class => "btn btn-primary btn-block" %>
@@ -40,6 +35,7 @@
         <h5 class="card-title"><%=a_pet.name%></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%=a_pet.species%>, <%="#{time_ago_in_words(a_pet.estimated_birthday)} old"%></h6>
         <h6 class="card-subtitle mb-2 text-muted"><%=a_pet.gender%>, <%=a_pet.weight%></h6>
+        <span class="badge badge-light"><%=a_pet.status%></span>
         <%# <p class="card-text">TEXT</p> %>
         <div>
           <a href="/pets/<%=a_pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
@@ -57,4 +53,4 @@
       </div>
     </div>
   </div>
-  <% end %>%
+  <% end %>

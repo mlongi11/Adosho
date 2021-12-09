@@ -1,8 +1,8 @@
 <div>
   <div>
-    <h1>
+    <h5>
       Set your preferences
-    </h1>
+    </h5>
   </div>
 </div>
 
@@ -167,128 +167,4 @@
 </div>
 
 <hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
 
-        <th>
-          User
-        </th>
-
-        <th>
-          Interested in fostering dogs
-        </th>
-
-        <th>
-          Interested in fostering cats
-        </th>
-
-        <th>
-          Interested in adopting dogs
-        </th>
-
-        <th>
-          Interested in adopting cats
-        </th>
-
-        <th>
-          Children competability preference
-        </th>
-
-        <th>
-          Dog competability preference
-        </th>
-
-        <th>
-          Cat competability preference
-        </th>
-
-        <th>
-          Activity competability preference
-        </th>
-
-        <th>
-          Home alone competability preference
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_interests.each do |an_interest| %>
-      <tr>
-        <td>
-          <%= an_interest.id %>
-        </td>
-
-        <td>
-          <%= an_interest.user_id %>
-        </td>
-
-        <td>
-          <%= an_interest.interested_in_fostering_dogs %>
-        </td>
-
-        <td>
-          <%= an_interest.interested_in_fostering_cats %>
-        </td>
-
-        <td>
-          <%= an_interest.interested_in_adopting_dogs %>
-        </td>
-
-        <td>
-          <%= an_interest.interested_in_adopting_cats %>
-        </td>
-
-        <td>
-          <%= an_interest.children_competability_preference %>
-        </td>
-
-        <td>
-          <%= an_interest.dog_competability_preference %>
-        </td>
-
-        <td>
-          <%= an_interest.cat_competability_preference %>
-        </td>
-
-        <td>
-          <%= an_interest.activity_competability_preference %>
-        </td>
-
-        <td>
-          <%= an_interest.home_alone_competability_preference %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_interest.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_interest.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/interests/<%= an_interest.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<hr>

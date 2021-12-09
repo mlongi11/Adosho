@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   # CREATE
   post("/insert_match", { :controller => "matches", :action => "create" })
           
+  # REFRESH
+  get("/refresh_matches", { :controller => "matches", :action => "refresh_matches" })
+
   # READ
   get("/matches", { :controller => "matches", :action => "index" })
   

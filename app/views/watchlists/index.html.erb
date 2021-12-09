@@ -1,9 +1,8 @@
-<div class = "container">
 <div>
   <div>
-    <h1>
+    <h3>
       My Watchlist
-    </h1>
+    </h3>
   </div>
 </div>
 
@@ -16,6 +15,7 @@
         <h5 class="card-title"><%=watched_pet.pet.name%></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%=watched_pet.pet.species%>, <%="#{time_ago_in_words(watched_pet.pet.estimated_birthday)} old"%></h6>
         <h6 class="card-subtitle mb-2 text-muted"><%=watched_pet.pet.gender%>, <%=watched_pet.pet.weight%></h6>
+        <span class="badge badge-light"><%=watched_pet.pet.status%></span>
         <%# <p class="card-text">TEXT</p> %>
         <div>
           <a href="/pets/<%=watched_pet.pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
@@ -36,4 +36,3 @@
   <% end %>
 </div>
 <hr>
-</div>

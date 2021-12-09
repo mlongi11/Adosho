@@ -69,7 +69,7 @@ class UserAuthenticationController < ApplicationController
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
     @user.phone_number = params.fetch("query_phone_number")
-    @user.account_type = params.fetch("query_account_type")
+    @user.account_type = "User"
     
     if @user.valid?
       @user.save

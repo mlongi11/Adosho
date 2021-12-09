@@ -30,9 +30,9 @@ class InterestsController < ApplicationController
 
     if the_interest.valid?
       the_interest.save
-      redirect_to("/interests/update", { :notice => "Interest created successfully." })
+      redirect_to("/matches", { :notice => "Preferences created successfully." })
     else
-      redirect_to("/interests", { :notice => "Interest failed to create successfully." })
+      redirect_to("/interests", { :notice => "Preferences failed to create successfully." })
     end
   end
 
@@ -51,9 +51,9 @@ class InterestsController < ApplicationController
 
     if the_interest.valid?
       the_interest.save
-      redirect_to("/interests/update", { :notice => "Interest updated successfully."} )
+      redirect_to("/matches", { :notice => "Preferences updated successfully."} )
     else
-      redirect_to("/interests/update", { :alert => "Interest failed to update successfully." })
+      redirect_to("/interests/update", { :alert => "Preferences failed to update successfully." })
     end
   end
 
@@ -63,6 +63,6 @@ class InterestsController < ApplicationController
 
     the_interest.destroy
 
-    redirect_to("/interests", { :notice => "Interest deleted successfully."} )
+    redirect_to("/interests", { :notice => "Preferences deleted successfully."} )
   end
 end

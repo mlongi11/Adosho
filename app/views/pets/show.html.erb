@@ -24,15 +24,85 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%=@the_pet.name%></h5>
-            <p class ="card-text"><i class="fas fa-venus-mars"></i> <%=@the_pet.gender%></p>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title">About <%=@the_pet.name%></h5>
+              <div class="row">
+                <div class="col-3 col-sm-3">
+                  <h6><i class="fas fa-paw"></i> Species</h6>
+                </div>
+                <div class="col-3 col-sm-3">
+                  <h6><i class="fas fa-venus-mars"></i> Gender</h6>
+                </div>
+                <div class="col-3 col-sm-3">
+                  <h6><i class="fas fa-birthday-cake"></i> Estimated Age</h6>
+                </div>
+                <div class="col-3 col-sm-3">
+                  <h6><i class="fas fa-weight-hanging"></i> Weight</h6>
+                </div>
+            </div>
+            <div class ="row">
+              <div class="col-3 col-sm-3">
+                <%=@the_pet.species%>
+              </div>
+              <div class="col-3 col-sm-3">
+                <%=@the_pet.gender%>
+              </div>
+              <div class="col-3 col-sm-3">
+                <%=time_ago_in_words(@the_pet.estimated_birthday)%>
+              </div>
+              <div class="col-3 col-sm-3">
+                <%=@the_pet.weight%>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <h6>Competability Rankings<h6>
+            </div>
+
+            <div class="row">
+              <div class="col-2 col-sm-2 text-center">
+                <h6><i class="fas fa-child"></i></i></i> Children</h6>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <h6><i class="fas fa-dog"></i> Dogs</h6>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <h6><i class="fas fa-cat"></i> Cats</h6>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <h6><i class="fas fa-home"></i> Home Alone</h6>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <h6><i class="fas fa-dumbbell"></i> Activity</h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 col-sm-2 text-center">
+                <%=@the_pet.children_competability_ranking%>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <%=@the_pet.dog_competability_ranking%>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <%=@the_pet.cat_competability_ranking%>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <%=@the_pet.home_alone_competability_ranking%>
+              </div>
+              <div class="col-2 col-sm-2 text-center">
+                <%=@the_pet.activity_competability_ranking%>
+              </div>
+            </div>
+
+
             <%if Watchlist.where({ :pet_id => @the_pet.id, :user_id => @current_user.id }).at(0) == nil%>
               <a href="/insert_watchlist/<%=@the_pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>
             <%else%>
               <a href="/delete_watchlist/<%=@the_pet.id%>" class="btn btn-outline-danger btn-sm">Stop Watching</a>
             <%end%>
-          <p class="card-text"><small class="text-muted">Updated <%= time_ago_in_words(@the_pet.updated_at) %> ago</small></p>
+            <p class="card-text"><small class="text-muted">Updated <%= time_ago_in_words(@the_pet.updated_at) %> ago</small></p>
           </div>
         </div>
       </div>

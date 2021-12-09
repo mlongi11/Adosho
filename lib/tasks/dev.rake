@@ -52,7 +52,12 @@ task({ :sample_data => :environment}) do
         Faker::Creature::Cat.name
       end)
     pet.weight = "#{rand(60)} lbs."
-    pet.picture = "https://robohash.org/#{pet.name}#{pet.weight}?set=set4"
+    pet.picture =
+    (if pet.species == "Dog"
+        "https://robohash.org/#{pet.name}#{pet.weight}?set=set3"
+      else
+        "https://robohash.org/#{pet.name}#{pet.weight}?set=set4"
+      end)
     pet.status = 
       (if rand(3) == 2
         "Available for adoption"

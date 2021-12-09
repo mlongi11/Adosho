@@ -1,118 +1,45 @@
 <div>
   <div>
-    <h1>
-      List of all matches
-    </h1>
+    <h3>
+      Pets matching my preferences
+    </h3>
   </div>
 </div>
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Add a new match
-    </h2>
-
-    <form action="/insert_match" method="post">
-      <div>
-        <label for="pet_id_box">
-          Pet
-        </label>
-
-        <input type="text" id="pet_id_box" name="query_pet_id">
-      </div>
-
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
-      <div>
-        <label for="match_strength_box">
-          Match strength
-        </label>
-
-        <input type="text" id="match_strength_box" name="query_match_strength">
-      </div>
-
-      <button>
-        Create match
-      </button>
-    </form>
-  </div>
-</div>
+<a href="/refresh_matches" class="btn btn-outline-info btn-block">Refresh Matches</a>
 
 <hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
 
-        <th>
-          Pet
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Match strength
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_matches.each do |a_match| %>
-      <tr>
-        <td>
-          <%= a_match.id %>
-        </td>
-
-        <td>
-          <%= a_match.pet_id %>
-        </td>
-
-        <td>
-          <%= a_match.user_id %>
-        </td>
-
-        <td>
-          <%= a_match.match_strength %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_match.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_match.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/matches/<%= a_match.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+<div class="row row-cols-1 row-cols-md-4">
+  <% @list_of_matches.each do |a_match| %>
+  <div class="col mb-3">
+    <div class="card h-100">
+      <img src="<%=a_match.pet.picture%>" class="card-img-top" alt="<%=a_match.pet.picture%>">
+      <div class="card-body">
+        <h5 class="card-title"><%=a_match.pet.name%></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%=a_match.pet.species%>, <%="#{time_ago_in_words(a_match.pet.estimated_birthday)} old"%></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%=a_match.pet.gender%>, <%=a_match.pet.weight%></h6>
+        <span class="badge badge-light"><%=a_match.pet.status%></span>
+        <%# <p class="card-text">TEXT</p> %>
+        <div>
+          <a href="/pets/<%=a_match.pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
+          <%if Watchlist.where({ :pet_id => a_match.pet.id, :user_id => @current_user.id }).at(0) == nil%>
+            <a href="/insert_watchlist/<%=a_match.pet.id%>" class="btn btn-outline-success btn-sm">Add to Watchlist</a>
+          <%else%>
+            <a href="/delete_watchlist/<%=a_match.pet.id%>" class="btn btn-outline-danger btn-sm">Stop Watching</a>
+          <%end%>
+        </div>
+        <span class="badge badge-pill badge-info">Children <span class="badge badge-light"><%=a_match.pet.children_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Dog <span class="badge badge-light"><%=a_match.pet.dog_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Cat <span class="badge badge-light"><%=a_match.pet.cat_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Home Alone <span class="badge badge-light"><%=a_match.pet.home_alone_competability_ranking%></span></span>
+        <span class="badge badge-pill badge-info">Activity <span class="badge badge-light"><%=a_match.pet.activity_competability_ranking%></span></span>
+      </div>
+    </div>
   </div>
-</div>
+  <% end %>
+  </div>
 
 <hr>
