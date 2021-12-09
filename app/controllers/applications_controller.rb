@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   def index
-    matching_applications = Application.all
+    matching_applications = @current_user.applications
 
     @list_of_applications = matching_applications.order({ :created_at => :desc })
 
@@ -19,10 +19,15 @@ class ApplicationsController < ApplicationController
 
   def create
     the_application = Application.new
-    the_application.user_id = params.fetch("query_user_id")
-    the_application.pet_id = params.fetch("query_pet_id")
-    the_application.application_type = params.fetch("query_application_type")
-    the_application.status = params.fetch("query_status")
+    the_application.user_id = @current_user.id
+    the_application.pet_id = params.fetch(:pet_id)
+    if Pet.where({:id => the_application.pet_id}).at(0).status == "Available for adoption"
+      the_application.application_type = "Adoption"
+    elsif Pet.where({:id => the_application.pet_id}).at(0).status == "Available for foster"
+      the_application.application_type = "Foster"
+    end
+
+    the_application.status = "Pending"
 
     if the_application.valid?
       the_application.save

@@ -9,7 +9,7 @@
     <hr>
 
   <%= search_form_for @q do |f| %>
-  <p>Narrow results:</p>
+  <h6>Narrow results:</h6>
 
   <div>
     <%= f.label :species_cont, "Species containing" %>
@@ -18,7 +18,7 @@
 
   <div>
     <%= f.label :status_cont, "Status containing" %>
-    <%= f.text_field :status_cont, :placeholder => "adoption, fostering" %>
+    <%= f.text_field :status_cont, :placeholder => "Available for adoption, foster" %>
   </div>
 
   <%= f.submit :class => "btn btn-primary btn-block" %>

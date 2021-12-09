@@ -1,134 +1,33 @@
 <div>
   <div>
-    <h1>
-      List of all applications
-    </h1>
+    <h3>
+      My Applications
+    </h3>
   </div>
 </div>
 
-<hr>
+<div class="row row-cols-1 row-cols-md-4">
+  <% @list_of_applications.each do |application| %>
+  <div class="col mb-3">
+    <div class="card h-100">
+      <%if application.status = "Pending"%>
+        <span class="badge badge-warning">Pending</span>
+      <%elsif application.status = "Approved"%>
+        <span class="badge badge-success">Approved</span>
+      <%end%>
 
-<div>
-  <div>
-    <h2>
-      Add a new application
-    </h2>
-
-    <form action="/insert_application" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
+      <img src="<%=application.pet.picture%>" class="card-img-top" alt="<%=application.pet.picture%>">
+      <div class="card-body">
+        <h5 class="card-title"><%=application.pet.name%></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%=application.pet.species%>, <%="#{time_ago_in_words(application.pet.estimated_birthday)} old"%></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%=application.pet.gender%>, <%=application.pet.weight%></h6>
+        <span class="badge badge-light"><%=application.pet.status%></span>
+        <div>
+          <a href="/pets/<%=application.pet.id%>" class="btn btn-outline-primary btn-sm">Details</a>
+        </div>
       </div>
-
-      <div>
-        <label for="pet_id_box">
-          Pet
-        </label>
-
-        <input type="text" id="pet_id_box" name="query_pet_id">
-      </div>
-
-      <div>
-        <label for="application_type_box">
-          Application type
-        </label>
-
-        <input type="text" id="application_type_box" name="query_application_type">
-      </div>
-
-      <div>
-        <label for="status_box">
-          Status
-        </label>
-
-        <input type="text" id="status_box" name="query_status">
-      </div>
-
-      <button>
-        Create application
-      </button>
-    </form>
+    </div>
   </div>
+  <% end %>
 </div>
-
-<hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Pet
-        </th>
-
-        <th>
-          Application type
-        </th>
-
-        <th>
-          Status
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_applications.each do |an_application| %>
-      <tr>
-        <td>
-          <%= an_application.id %>
-        </td>
-
-        <td>
-          <%= an_application.user_id %>
-        </td>
-
-        <td>
-          <%= an_application.pet_id %>
-        </td>
-
-        <td>
-          <%= an_application.application_type %>
-        </td>
-
-        <td>
-          <%= an_application.status %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_application.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_application.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/applications/<%= an_application.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
 <hr>

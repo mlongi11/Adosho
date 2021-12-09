@@ -24,9 +24,9 @@ class WatchlistsController < ApplicationController
 
     if the_watchlist.valid?
       the_watchlist.save
-      redirect_to("/watchlists", { :notice => "Watchlist created successfully." })
+      redirect_to("/watchlists", { :notice => "Watchlist updated successfully." })
     else
-      redirect_to("/watchlists", { :notice => "Watchlist failed to create successfully." })
+      redirect_to("/watchlists", { :notice => "Watchlist failed to update successfully." })
     end
   end
 

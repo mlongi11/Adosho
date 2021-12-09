@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Routes for the Application resource:
 
   # CREATE
-  post("/insert_application", { :controller => "applications", :action => "create" })
+  post("/create_application/:pet_id", { :controller => "applications", :action => "create" })
           
   # READ
   get("/applications", { :controller => "applications", :action => "index" })
